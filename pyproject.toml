@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "quiztalcoatl"
+version = "0.1.0"
+description = "Local-first geography quiz video production"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["typer>=0.16,<1", "pydantic>=2,<3", "pillow>=11,<13"]
+
+[project.scripts]
+quiztalcoatl = "quiztalcoatl.cli:app"
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "ruff>=0.12,<1", "mypy>=1.16,<2"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/quiztalcoatl"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers"
+tmp_path_retention_policy = "none"
+markers = ["smoke: real FFmpeg/ffprobe integration test (requires system executables)"]
