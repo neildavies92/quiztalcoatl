@@ -218,3 +218,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# QUIZtalcoatl generated outputs and local files
+/output/
+/outputs/
+/tmp/
+.env.*
+!.env.example
+.DS_Store
