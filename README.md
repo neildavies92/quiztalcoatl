@@ -4,10 +4,10 @@ A local-first application for producing polished educational geography quiz vide
 YouTube. The first planned pilot is **V-001 — Guess 15 Countries From Their Flags**.
 
 M1 establishes the Python package, CLI, environment checks and automated development
-checks. Quiz generation, country data, schemas, image cards, full video rendering and
-publishing are not implemented. Pydantic and Pillow are approved dependencies reserved
-for later milestones. M2 will introduce core schemas and validated V-001 content after
-M1 is reviewed and merged.
+checks. M2a adds strict versioned data contracts and offline validation of local JSON,
+asset references and publication-readiness metadata. Production country content, question
+selection, image cards, full video rendering and publishing are not implemented.
+M2b will verify editorial content and assets; M3 will resolve questions deterministically.
 
 ## Development setup
 
@@ -46,6 +46,20 @@ uv run python -m quiztalcoatl --help
 
 `doctor` reports Python and media-tool versions, and exits non-zero with installation
 guidance if either executable is missing or fails to run.
+
+Validate the synthetic test-only draft (this does not grant editorial approval):
+
+```bash
+uv run quiztalcoatl validate \
+  --countries tests/fixtures/countries.draft.json \
+  --recipe tests/fixtures/V-001.test.json
+```
+
+Add `--publication-ready` to require approved, verified, licensed inputs and real PNG
+flags; the draft fixture intentionally fails that gate. Use `--content-root /path/to/repo`
+for repository-relative asset paths; otherwise paths resolve from the snapshot directory.
+Validation never modifies files or accesses the network. See
+[data contracts](docs/data-contracts.md) for schemas, timing, provenance and review rules.
 
 ## Development commands
 

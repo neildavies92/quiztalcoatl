@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "video_id": "V-001",
+  "topic": "Geography",
+  "quiz_format": "flag_identification",
+  "difficulty": "Easy",
+  "scope": "World",
+  "question_count": 15,
+  "candidate_country_ids": [
+    "test-country-01",
+    "test-country-02",
+    "test-country-03",
+    "test-country-04",
+    "test-country-05",
+    "test-country-06",
+    "test-country-07",
+    "test-country-08",
+    "test-country-09",
+    "test-country-10",
+    "test-country-11",
+    "test-country-12",
+    "test-country-13",
+    "test-country-14",
+    "test-country-15"
+  ],
+  "seed": 42,
+  "distractor_count": 3,
+  "timing": {
+    "question_seconds": 21,
+    "intro_seconds": 5,
+    "checkpoint_seconds": 3,
+    "checkpoint_after": [
+      5,
+      10
+    ],
+    "outro_seconds": 5
+  },
+  "theme_id": "test-only-theme",
+  "publication": {
+    "working_title": "TEST ONLY: Synthetic flag quiz",
+    "thumbnail_hook": "TEST ONLY"
+  }
+}
