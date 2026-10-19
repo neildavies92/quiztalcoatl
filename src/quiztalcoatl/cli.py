@@ -4,9 +4,12 @@ import platform
 import shutil
 import subprocess
 from importlib.metadata import version
+from pathlib import Path
 from typing import Annotated
 
 import typer
+
+from quiztalcoatl.content import ContentError, load_recipe, load_snapshot, validate_inputs
 
 app = typer.Typer(
     name="quiztalcoatl",
@@ -69,3 +72,32 @@ def doctor() -> None:
             "See README.md for prerequisites, then rerun quiztalcoatl doctor."
         )
         raise typer.Exit(code=1)
+
+
+@app.command()
+def validate(
+    countries: Annotated[Path, typer.Option(help="Local country snapshot JSON.")],
+    recipe: Annotated[Path, typer.Option(help="Local quiz recipe JSON.")],
+    publication_ready: Annotated[
+        bool, typer.Option(help="Require editorial approval, verified facts and production assets.")
+    ] = False,
+    content_root: Annotated[
+        Path | None,
+        typer.Option(help="Root for asset paths; defaults to the country snapshot directory."),
+    ] = None,
+) -> None:
+    """Validate local inputs without changing files or accessing external services."""
+    try:
+        snapshot = load_snapshot(countries)
+        quiz_recipe = load_recipe(recipe)
+        validate_inputs(
+            snapshot,
+            quiz_recipe,
+            content_root if content_root is not None else countries.resolve().parent,
+            publication_ready=publication_ready,
+        )
+    except ContentError as exc:
+        typer.echo(f"Validation failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    mode = "publication readiness" if publication_ready else "structural validity (not approval)"
+    typer.echo(f"Validation succeeded: {mode} for {quiz_recipe.video_id} / {snapshot.snapshot_id}.")
