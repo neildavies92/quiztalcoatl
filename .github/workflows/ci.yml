@@ -19,7 +19,24 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install FFmpeg and ffprobe
-        run: sudo apt-get update && sudo apt-get install --yes ffmpeg
+        timeout-minutes: 5
+        shell: bash
+        run: |
+          # The hosted runner's Azure mirror repeatedly stalled FFmpeg downloads.
+          if [[ -f /etc/apt/apt-mirrors.txt ]]; then
+            sudo sed -E -i \
+              's|https?://azure\.archive\.ubuntu\.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' \
+              /etc/apt/apt-mirrors.txt
+          fi
+          apt_options=(
+            -o Acquire::Retries=2
+            -o Acquire::http::Timeout=30
+            -o Acquire::https::Timeout=30
+          )
+          sudo apt-get "${apt_options[@]}" update
+          sudo apt-get "${apt_options[@]}" install --yes --no-install-recommends ffmpeg
+          ffmpeg -version
+          ffprobe -version
       - name: Synchronise locked dependencies
         run: uv sync --locked
       - run: make check
