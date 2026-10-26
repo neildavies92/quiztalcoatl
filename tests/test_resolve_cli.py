@@ -3,6 +3,7 @@
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -35,15 +36,18 @@ def arguments(inputs: SyntheticInputs, output: Path, *, overwrite: bool = False)
     return [*args, "--overwrite"] if overwrite else args
 
 
-def test_help_and_required_output(inputs: SyntheticInputs) -> None:
+@pytest.mark.parametrize("force_color", [None, "1"])
+def test_help_and_required_output(inputs: SyntheticInputs, force_color: str | None) -> None:
     result = CliRunner().invoke(app, ["--help"])
     assert result.exit_code == 0 and "resolve" in result.output
-    result = CliRunner().invoke(app, ["resolve", "--help"])
+    result = CliRunner().invoke(app, ["resolve", "--help"], env={"FORCE_COLOR": force_color})
     assert result.exit_code == 0
-    assert "--output" in result.output and "--overwrite" in result.output
+    help_text = re.sub(r"\x1b\[[0-9;]*m", "", result.output)
+    assert "--output" in help_text and "--overwrite" in help_text
     args = arguments(inputs, inputs.root / "unused.json")
-    result = CliRunner().invoke(app, args[:-2])
-    assert result.exit_code != 0 and "--output" in result.output
+    result = CliRunner().invoke(app, args[:-2], env={"FORCE_COLOR": force_color})
+    error_text = re.sub(r"\x1b\[[0-9;]*m", "", result.output)
+    assert result.exit_code != 0 and "--output" in error_text
 
 
 def test_manifest_integrity_repeatability_and_input_preservation(inputs: SyntheticInputs) -> None:
