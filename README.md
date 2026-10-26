@@ -5,9 +5,10 @@ YouTube. The first planned pilot is **V-001 — Guess 15 Countries From Their Fl
 
 M1 establishes the Python package, CLI, environment checks and automated development
 checks. M2a adds strict versioned data contracts and offline validation of local JSON,
-asset references and publication-readiness metadata. Production country content, question
-selection, image cards, full video rendering and publishing are not implemented.
-M2b will verify editorial content and assets; M3 will resolve questions deterministically.
+asset references and publication-readiness metadata. Image cards, full video rendering
+and publishing remain future milestones.
+M2b supplies researched draft content and assets. M3a/M3b resolve questions deterministically
+and expose a production CLI; real V-001 publication still requires M2c human approval.
 
 ## Development setup
 
@@ -60,6 +61,21 @@ flags; the draft fixture intentionally fails that gate. Use `--content-root /pat
 for repository-relative asset paths; otherwise paths resolve from the snapshot directory.
 Validation never modifies files or accesses the network. See
 [data contracts](docs/data-contracts.md) for schemas, timing, provenance and review rules.
+
+Resolve approved inputs into readable, reproducible JSON:
+
+```bash
+uv run quiztalcoatl resolve \
+  --countries data/countries.json --recipe recipes/V-001.json \
+  --content-root . --output output/V-001/manifest.json
+```
+
+The real snapshot is still draft; this currently fails with an editorial-approval error
+and creates no manifest. After genuine approval, the command validates every input,
+then writes through a temporary file and publishes atomically. Existing outputs require
+`--overwrite`; this never bypasses editorial checks. Keep generated files under ignored
+`output/` or `outputs/`. See [resolver usage and synthetic acceptance](docs/resolver.md)
+and the [editorial review checklist](docs/editorial/V-001-review.md).
 
 ## Development commands
 
