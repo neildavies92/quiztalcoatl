@@ -3,7 +3,7 @@
 M3a transforms the existing M2a country and recipe contracts into a validated
 `ResolvedQuizManifest`. It supports only flag identification. It performs no network
 access, rendering, editorial approval, question reuse tracking or output-file writing.
-The real V-001 dataset and CLI integration belong to separate milestones.
+M3b adds the CLI and output handling below; real V-001 editorial approval remains a separate gate.
 
 ## Public interfaces and validation boundary
 
@@ -180,7 +180,81 @@ asset errors, exact file hashes, source preservation, JSON round trips, mutation
 isolation, offline execution and the expected duration. Existing M1/M2a tests remain
 part of the full suite.
 
-M2b can progress independently using the unchanged contracts. After M2b and M3a are
-reviewed and merged, M3b can call `resolve_files`, add the `quiztalcoatl resolve` CLI,
-write the real manifest to the ignored output directory and carry out real-content
-UAT. No real V-001 manifest, CLI resolve command or renderer is included in M3a.
+M2c editorial acceptance progresses independently using the unchanged contracts. M2b and M3a are now merged. M3b calls `resolve_files` through the production CLI;
+real-content output and UAT still require genuine M2c approval and passing publication readiness. M3a itself supplied no real V-001 manifest, CLI resolve command or renderer. The M3b CLI below preserves its algorithm and contracts.
+
+## Production CLI and output safety (M3b)
+
+The production command uses `resolve_files` and the existing publication gate:
+
+```bash
+uv run quiztalcoatl resolve \
+  --countries data/countries.json --recipe recipes/V-001.json \
+  --content-root . --output output/V-001/manifest.json
+```
+
+`--output` is required. The real snapshot is currently draft, so this command exits 1
+with missing-approval diagnostics and creates no output directory or manifest. Merging
+content or passing CI does not approve it. M2c records actual human editorial acceptance;
+there is no option to bypass approval, verification, licensing metadata or asset integrity.
+`--overwrite` grants permission to replace an output file only after all input gates pass.
+
+After resolution, the manifest is serialized with the existing Pydantic model's field
+order, two-space indentation, UTF-8 encoding, LF line endings and exactly one trailing
+newline. No timestamps, absolute machine paths or new ranking inputs are introduced.
+Repeated resolution of identical files produces identical manifest bytes. Input hashes
+continue to identify the original source bytes, and the fixed M3a ranking/answer vectors
+remain unchanged. Successful V-001 resolution reports 15 questions and 355 seconds.
+
+Directories are created only after validation and serialization succeed. A temporary
+file is created in the destination directory, written, flushed, fsynced and closed before
+publication. With `--overwrite`, `os.replace` atomically replaces the destination. Without
+it, an atomic hard link publishes the complete temporary file only if the destination
+is absent; this also protects an output created concurrently after the initial check.
+The temporary link is then removed. Both operations use the destination filesystem.
+A filesystem without hard-link support fails explicitly rather than falling back to a
+partial or clobbering write. This guarantees atomic publication, not transactional
+protection against adversarial filesystem changes or power-loss durability of directory
+entries.
+
+Failures in temporary-file creation, writing, syncing or publication leave an existing
+output unchanged and remove the temporary file. Empty output directories can remain
+after an I/O failure; partially written manifests do not. Existing directories and
+symlinks are handled explicitly; an output cannot alias either input JSON file or a
+referenced flag/outline asset, including assets not selected for questions. The CLI
+reloads the snapshot through the existing loader solely to protect all referenced
+asset paths; it does not duplicate validation policy or change the resolver API.
+
+Write generated manifests under the Git-ignored `output/` or `outputs/` directories.
+The command never commits files. Example of an intentional repeat run:
+
+```bash
+uv run quiztalcoatl resolve \
+  --countries data/countries.json --recipe recipes/V-001.json \
+  --content-root . --output output/V-001/manifest.json --overwrite
+```
+
+### Reproduce synthetic CLI acceptance
+
+```bash
+uv run pytest tests/test_resolve_cli.py -v
+uv run pytest tests/test_resolve_cli.py::test_installed_cli_demonstration -s -q
+```
+
+The second command generates approved **test-only** inputs in a temporary directory,
+invokes the real module CLI twice, prints the success summaries and manifest hash,
+and compares actual output bytes. No production verification metadata is changed.
+The observed synthetic manifest SHA-256 with the committed lockfile was
+`68e81de2797b66f67ce48a415a3276e44f4c3d4c9efe4b025f3b354968aa732c`.
+This identifies test fixture bytes, not real V-001 content.
+The suite also exercises refusal to overwrite without consent, invalid/unapproved
+inputs, injected write failures, cleanup, source preservation and the genuine current
+editorial state of `data/countries.json`. After real approval that regression requires
+successful real-content resolution; it does not hardcode permanent draft status.
+
+Human acceptance of the real 15-question output remains a separate step after M3b and
+M2c are reviewed and merged. Check all flags, answers, distractors, explanations,
+sources, input hashes and the 355-second duration; generate a second file and compare
+bytes. A `geography-pilot` identifier is a reference to future theme configuration,
+not proof of visual-theme UAT. This milestone adds CLI integration and output handling;
+it does not create a renderer or record editorial acceptance.
