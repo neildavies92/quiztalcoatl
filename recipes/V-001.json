@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "video_id": "V-001",
+  "topic": "Geography",
+  "quiz_format": "flag_identification",
+  "difficulty": "Easy",
+  "scope": "World",
+  "question_count": 15,
+  "candidate_country_ids": [
+    "france",
+    "japan",
+    "canada",
+    "brazil",
+    "germany",
+    "italy",
+    "spain",
+    "ireland",
+    "sweden",
+    "norway",
+    "finland",
+    "denmark",
+    "poland",
+    "greece",
+    "india",
+    "south-korea",
+    "mexico",
+    "argentina",
+    "south-africa"
+  ],
+  "seed": 20261026,
+  "distractor_count": 3,
+  "timing": {
+    "question_seconds": 21,
+    "intro_seconds": 14,
+    "checkpoint_seconds": 4,
+    "checkpoint_after": [
+      5,
+      10
+    ],
+    "outro_seconds": 18
+  },
+  "theme_id": "geography-pilot",
+  "publication": {
+    "working_title": "Guess 15 Countries From Their Flags",
+    "thumbnail_hook": "How many flags can you name?"
+  }
+}

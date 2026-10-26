@@ -1,0 +1,1682 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "v001-country-research-2026-10-26",
+  "editorial_status": "draft",
+  "countries": [
+    {
+      "country_id": "france",
+      "name": "France",
+      "continent": "Europe",
+      "region": "Western Europe",
+      "capitals": [
+        {
+          "name": "Paris"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/france.png",
+        "sha256": "a37d2847630992865fb60a86179bb91f0d5e987e544a26c1549caed021d0cbb6",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_France.svg&oldid=1291253550",
+        "licence": "public-domain",
+        "attribution": "Original: Unknown Vector: SKopp",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of France.svg; original SVG SHA1 66bdc8e9edf0515a0742b58a4f04fa1103084d56. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "The flag's blue-white-red order was fixed by decree in February 1794.",
+        "sources": [
+          {
+            "url": "https://www.info.gouv.fr/actualite/la-petite-histoire-du-drapeau-tricolore",
+            "title": "La petite histoire du drapeau tricolore — French Government",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/fr.html",
+              "title": "UN Statistics Division country profile — France",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/fr.html",
+              "title": "UN Statistics Division country profile — France",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_France.svg&oldid=1291253550",
+              "title": "File:Flag of France.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.info.gouv.fr/actualite/la-petite-histoire-du-drapeau-tricolore",
+              "title": "La petite histoire du drapeau tricolore — French Government",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.info.gouv.fr/actualite/la-petite-histoire-du-drapeau-tricolore",
+              "title": "La petite histoire du drapeau tricolore — French Government",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Avoid colour-origin myth: this government account says the royal-white/Paris-colours explanation is a later legend, while Élysée presents the traditional account. Selected decree/history fact avoids disagreement. Overall ratio should be confirmed from source asset's original dimensions."
+    },
+    {
+      "country_id": "japan",
+      "name": "Japan",
+      "continent": "Asia",
+      "region": "Eastern Asia",
+      "capitals": [
+        {
+          "name": "Tokyo"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/japan.png",
+        "sha256": "00e5a053af31b9797daa6adb768cdcf785a36ee1dee1d0aba0e55aaa0cb47768",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Japan.svg&oldid=1276144940",
+        "licence": "public-domain",
+        "attribution": "Various",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Japan.svg; original SVG SHA1 bda514e7fbea77ed21b325dec24b920cd42e31dd. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "The red sun's diameter is three-fifths of the flag's height.",
+        "sources": [
+          {
+            "url": "https://www.japan.go.jp/japan/flagandanthem/index.html",
+            "title": "National Flag and Anthem — Government of Japan",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/jp.html",
+              "title": "UN Statistics Division country profile — Japan",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/jp.html",
+              "title": "UN Statistics Division country profile — Japan",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Japan.svg&oldid=1276144940",
+              "title": "File:Flag of Japan.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.japan.go.jp/japan/flagandanthem/index.html",
+              "title": "National Flag and Anthem — Government of Japan",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.japan.go.jp/japan/flagandanthem/index.html",
+              "title": "National Flag and Anthem — Government of Japan",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Official source calls the disc the rising sun and gives its diameter and 2:3 height/width ratio. Distinguish national Hinomaru from naval rising-sun ensign."
+    },
+    {
+      "country_id": "canada",
+      "name": "Canada",
+      "continent": "North America",
+      "region": "Northern America",
+      "capitals": [
+        {
+          "name": "Ottawa"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/canada.png",
+        "sha256": "ddf3346a2dc323c6225144fd1de0ee99624cf15dec2aa98df0efcd587035505c",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Canada.svg&oldid=1254032112",
+        "licence": "public-domain",
+        "attribution": "Created by George F. G. Stanley / E Pluribus Anthony / User:Mzajac",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Canada.svg; original SVG SHA1 a7009bf6f2e26ee0eb4be043f736f37085a77e7f. National-symbol/insignia restrictions remain subject to human use-context review. Source file page directs business-use requests to Canadian Heritage; resolve whether the proposed monetised educational use needs permission."
+      },
+      "flag_learning_fact": {
+        "text": "The maple leaf has 11 points, reduced from 13 to stay clear at a distance.",
+        "sources": [
+          {
+            "url": "https://www.canada.ca/en/canadian-heritage/services/flag-canada-description.html",
+            "title": "Description of the National Flag of Canada — Canadian Heritage",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/ca.html",
+              "title": "UN Statistics Division country profile — Canada",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/ca.html",
+              "title": "UN Statistics Division country profile — Canada",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Canada.svg&oldid=1254032112",
+              "title": "File:Flag of Canada.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.canada.ca/en/canadian-heritage/services/flag-canada-description.html",
+              "title": "Description of the National Flag of Canada — Canadian Heritage",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.canada.ca/en/canadian-heritage/services/flag-canada-description.html",
+              "title": "Description of the National Flag of Canada — Canadian Heritage",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Source explicitly says flag and maple leaf are protected symbols under Trademarks Act; review source artwork terms and usage restrictions, not just copyright/public-domain label."
+    },
+    {
+      "country_id": "brazil",
+      "name": "Brazil",
+      "continent": "South America",
+      "region": "South America",
+      "capitals": [
+        {
+          "name": "Brasília"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/brazil.png",
+        "sha256": "3b5c956c770898c80e64b18dfeca348cc06c7188d5b616df6f0ef2c5fc1e95f3",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Brazil.svg&oldid=1263985246",
+        "licence": "public-domain",
+        "attribution": "Raimundo Teixeira Mendes",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Brazil.svg; original SVG SHA1 cca9ce8271c6b21de0bd126681b1b04f9ad074f7. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "Its 27 stars represent Brazil's 26 states and Federal District.",
+        "sources": [
+          {
+            "url": "https://www.gov.br/aeb/pt-br/centrais-de-conteudo/publicacoes/instagram-do-periodo-de-defeso-eleitoral-2022/semana-espacial-100-anos-de-independencia-as-constelacoes-da-bandeira/",
+            "title": "As constelações da bandeira — Agência Espacial Brasileira",
+            "accessed_on": "2026-10-26"
+          },
+          {
+            "url": "https://educa.ibge.gov.br/jovens/conheca-o-brasil/territorio/19637-divisao-territorial.html",
+            "title": "Additional official support — Brazil",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/br.html",
+              "title": "UN Statistics Division country profile — Brazil",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/br.html",
+              "title": "UN Statistics Division country profile — Brazil",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Brazil.svg&oldid=1263985246",
+              "title": "File:Flag of Brazil.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.gov.br/aeb/pt-br/centrais-de-conteudo/publicacoes/instagram-do-periodo-de-defeso-eleitoral-2022/semana-espacial-100-anos-de-independencia-as-constelacoes-da-bandeira/",
+              "title": "As constelações da bandeira — Agência Espacial Brasileira",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.gov.br/aeb/pt-br/centrais-de-conteudo/publicacoes/instagram-do-periodo-de-defeso-eleitoral-2022/semana-espacial-100-anos-de-independencia-as-constelacoes-da-bandeira/",
+              "title": "As constelações da bandeira — Agência Espacial Brasileira",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://educa.ibge.gov.br/jovens/conheca-o-brasil/territorio/19637-divisao-territorial.html",
+              "title": "Additional official support — Brazil",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Federal museum source states 27 stars, one for each federation unit; IBGE confirms 26 states plus Federal District. Do not use green=forest/yellow=gold as an unqualified origin claim. Law also regulates respectful use. Museum page returned 401 on direct fetch; chosen Space Agency source fetched successfully and explicitly confirms 27 stars."
+    },
+    {
+      "country_id": "germany",
+      "name": "Germany",
+      "continent": "Europe",
+      "region": "Western Europe",
+      "capitals": [
+        {
+          "name": "Berlin"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/germany.png",
+        "sha256": "2e638a69bdab0a288ce384401d1212df098ca28cb810ba06f3ceca6db4a1cac9",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Germany.svg&oldid=1291253561",
+        "licence": "public-domain",
+        "attribution": "User:SKopp , User:Madden , and other users",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Germany.svg; original SVG SHA1 c48217a5ca039133249c04c1e4248af6e2021020. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "Black, red and gold symbolised unity and freedom during the 1848–49 revolution.",
+        "sources": [
+          {
+            "url": "https://www.bundestag.de/en/parliament/symbols/flag/flag-199494",
+            "title": "The Federal Flag — German Bundestag",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/de.html",
+              "title": "UN Statistics Division country profile — Germany",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/de.html",
+              "title": "UN Statistics Division country profile — Germany",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Germany.svg&oldid=1291253561",
+              "title": "File:Flag of Germany.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.bundestag.de/en/parliament/symbols/flag/flag-199494",
+              "title": "The Federal Flag — German Bundestag",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.bundestag.de/en/parliament/symbols/flag/flag-199494",
+              "title": "The Federal Flag — German Bundestag",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Use plain federal tricolour, not restricted federal service flag with shield/eagle. Bundestag says colour origins cannot be identified with certainty, so avoid a definitive uniform-origin story."
+    },
+    {
+      "country_id": "italy",
+      "name": "Italy",
+      "continent": "Europe",
+      "region": "Southern Europe",
+      "capitals": [
+        {
+          "name": "Rome"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/italy.png",
+        "sha256": "162b6ec9f5529a0ccdc964fe8cf76e7b5d39f24cf30d939917b900419a12e225",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Italy.svg&oldid=1291680852",
+        "licence": "public-domain",
+        "attribution": "See below.",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Italy.svg; original SVG SHA1 ccfa27a8df75545ea163f49cf841fc39ec148667. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "The Italian tricolour originated in Reggio Emilia in 1797.",
+        "sources": [
+          {
+            "url": "https://www.quirinale.it/it/pagine/italian-tricolour-flag",
+            "title": "Italian Tricolour Flag — Presidency of the Italian Republic",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/it.html",
+              "title": "UN Statistics Division country profile — Italy",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/it.html",
+              "title": "UN Statistics Division country profile — Italy",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Italy.svg&oldid=1291680852",
+              "title": "File:Flag of Italy.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.quirinale.it/it/pagine/italian-tricolour-flag",
+              "title": "Italian Tricolour Flag — Presidency of the Italian Republic",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.quirinale.it/it/pagine/italian-tricolour-flag",
+              "title": "Italian Tricolour Flag — Presidency of the Italian Republic",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Historical 1797 Cispadane tricolour had different layout; fact claims origin, not that present vertical flag was fully adopted in that form then."
+    },
+    {
+      "country_id": "spain",
+      "name": "Spain",
+      "continent": "Europe",
+      "region": "Southern Europe",
+      "capitals": [
+        {
+          "name": "Madrid"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/spain.png",
+        "sha256": "39edf163d2313737d995f86836c51015ece1a7be045e6b40a757f02a485c45c1",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Spain.svg&oldid=1291257240",
+        "licence": "public-domain",
+        "attribution": "RelShot 263 , Echando una mano ; earlier version was Pedro A. Gracia Fajardo, escudo de Manual de Imagen Institucional de la Administración General del Estado",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Spain.svg; original SVG SHA1 74282630c92cd0c990c0c32f09352a1ad927a342. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "Spain's central yellow stripe is twice as wide as either red stripe.",
+        "sources": [
+          {
+            "url": "https://administracion.gob.es/en/espanaadmon/comoseorganizaestado/simbolosestado",
+            "title": "Symbols of the State — Spanish Public Administration",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/es.html",
+              "title": "UN Statistics Division country profile — Spain",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/es.html",
+              "title": "UN Statistics Division country profile — Spain",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Spain.svg&oldid=1291257240",
+              "title": "File:Flag of Spain.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://administracion.gob.es/en/espanaadmon/comoseorganizaestado/simbolosestado",
+              "title": "Symbols of the State — Spanish Public Administration",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://administracion.gob.es/en/espanaadmon/comoseorganizaestado/simbolosestado",
+              "title": "Symbols of the State — Spanish Public Administration",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Official source quotes Constitution art.4.1; ratio set by flag regulations. State version with coat of arms is familiar; record exact asset chosen."
+    },
+    {
+      "country_id": "portugal",
+      "name": "Portugal",
+      "continent": "Europe",
+      "region": "Southern Europe",
+      "capitals": [
+        {
+          "name": "Lisbon"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/portugal.png",
+        "sha256": "4428df3795d39bfe57fad49e4b8cb036bf14a662d2a217df480df9fd4bc0d396",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Portugal.svg&oldid=1254134722",
+        "licence": "public-domain",
+        "attribution": "Original: Columbano Bordalo Pinheiro (1910; generic design) Vector: Vítor Luís Rodrigues; António Martins-Tuválkin (2004; this specific vector set: see sources)",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Portugal.svg; original SVG SHA1 8638595006e5e7b402055a0c784f43955e8ebee7. National-symbol/insignia restrictions remain subject to human use-context review. EXCLUDED from recipe and flag eligibility: current source page is categorised Flags with invalid colors; authoritative hue comparison/replacement remains pending."
+      },
+      "flag_learning_fact": {
+        "text": "The golden armillary sphere depicts a historic navigation instrument.",
+        "sources": [
+          {
+            "url": "https://jorgesampaio.arquivo.presidencia.pt/pt/republica/simbolos/bandeiras/index.html",
+            "title": "National flag drawing instructions — archived Portuguese Presidency",
+            "accessed_on": "2026-10-26"
+          },
+          {
+            "url": "https://www.presidencia.pt/en-en/president-of-the-republic/the-presidency/national-symbols/",
+            "title": "Additional official support — Portugal",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": false,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/pt.html",
+              "title": "UN Statistics Division country profile — Portugal",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/pt.html",
+              "title": "UN Statistics Division country profile — Portugal",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Portugal.svg&oldid=1254134722",
+              "title": "File:Flag of Portugal.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://jorgesampaio.arquivo.presidencia.pt/pt/republica/simbolos/bandeiras/index.html",
+              "title": "National flag drawing instructions — archived Portuguese Presidency",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://jorgesampaio.arquivo.presidencia.pt/pt/republica/simbolos/bandeiras/index.html",
+              "title": "National flag drawing instructions — archived Portuguese Presidency",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.presidencia.pt/en-en/president-of-the-republic/the-presidency/national-symbols/",
+              "title": "Additional official support — Portugal",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Official drawing instructions say green occupies two-fifths, red three-fifths, height is two-thirds of length; sphere described as stylised navigation instrument. Excluded from the candidate pool pending source artwork colour review."
+    },
+    {
+      "country_id": "ireland",
+      "name": "Ireland",
+      "continent": "Europe",
+      "region": "Northern Europe",
+      "capitals": [
+        {
+          "name": "Dublin"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/ireland.png",
+        "sha256": "c2ac3038bf1851b8b4ef0c67b31c96c7de750c525cd2da66c8973e6e978ccc0a",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Ireland.svg&oldid=1291254861",
+        "licence": "public-domain",
+        "attribution": "Éire",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Ireland.svg; original SVG SHA1 fb73800615b9414c8f48323c96b121898523fea0. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "Its green, white and orange express hope of unity between Ireland's different traditions.",
+        "sources": [
+          {
+            "url": "https://www.military.ie/en/public-information/defence-forces-museums/defence-forces-history/the-national-flag/",
+            "title": "The National Flag — Irish Defence Forces",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/ie.html",
+              "title": "UN Statistics Division country profile — Ireland",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/ie.html",
+              "title": "UN Statistics Division country profile — Ireland",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Ireland.svg&oldid=1291254861",
+              "title": "File:Flag of Ireland.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.military.ie/en/public-information/defence-forces-museums/defence-forces-history/the-national-flag/",
+              "title": "The National Flag — Irish Defence Forces",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.military.ie/en/public-information/defence-forces-museums/defence-forces-history/the-national-flag/",
+              "title": "The National Flag — Irish Defence Forces",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Official source describes inclusion/aspiration for unity and quotes white as a lasting truce. All three stripes equal; green at hoist. Department of Taoiseach source returned 403 on direct fetch, so chosen Defence Forces text is fetched and directly supports the general flag meaning."
+    },
+    {
+      "country_id": "sweden",
+      "name": "Sweden",
+      "continent": "Europe",
+      "region": "Northern Europe",
+      "capitals": [
+        {
+          "name": "Stockholm"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/sweden.png",
+        "sha256": "9facb047d5e23b47c8f45b247bf83f83a19ccf5be4af80b563da74d50234a68b",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Sweden.svg&oldid=1267168676",
+        "licence": "public-domain",
+        "attribution": "Jon Harald Søby and others.",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Sweden.svg; original SVG SHA1 e2717718a2b2089843c6fc487d65cbe6fdceb9c3. National-symbol/insignia restrictions remain subject to human use-context review. Source warns against commercial marks implying official endorsement; review intended use."
+      },
+      "flag_learning_fact": {
+        "text": "Swedish blue-and-yellow cross flags appear in a royal coat of arms from 1557.",
+        "sources": [
+          {
+            "url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/statens-offentliga-utredningar/ett-modernt-beloningssystem-de-allmanna_h9b374/html/",
+            "title": "SOU 2021:74, page 114 — Swedish Parliament official inquiry",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/se.html",
+              "title": "UN Statistics Division country profile — Sweden",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/se.html",
+              "title": "UN Statistics Division country profile — Sweden",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Sweden.svg&oldid=1267168676",
+              "title": "File:Flag of Sweden.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/statens-offentliga-utredningar/ett-modernt-beloningssystem-de-allmanna_h9b374/html/",
+              "title": "SOU 2021:74, page 114 — Swedish Parliament official inquiry",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/statens-offentliga-utredningar/ett-modernt-beloningssystem-de-allmanna_h9b374/html/",
+              "title": "SOU 2021:74, page 114 — Swedish Parliament official inquiry",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Official inquiry says Gustav Vasa issued heraldic arms for Duke Johan in 1557; part shows two crossed blue/yellow cross flags resembling present flag. Avoid claiming precise modern flag date. Norden redirects temporarily and Riksarkivet direct fetch timed out; use Parliament inquiry."
+    },
+    {
+      "country_id": "norway",
+      "name": "Norway",
+      "continent": "Europe",
+      "region": "Northern Europe",
+      "capitals": [
+        {
+          "name": "Oslo"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/norway.png",
+        "sha256": "7e082cf1068f4cdfa94306feb17190f1205519d98eb3d3cdaf21d3b2d4ee346f",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Norway.svg&oldid=1269120819",
+        "licence": "public-domain",
+        "attribution": "Original: Fredrik Meltzer Vector: Gutten på Hemsen",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Norway.svg; original SVG SHA1 905b385ab20e146fbec17b14187c999d03970b30. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "Norway's parliament chose the red, white and blue cross design in 1821.",
+        "sources": [
+          {
+            "url": "https://www.stortinget.no/no/english/About-the-Storting/the-norwegian-flag/",
+            "title": "The Norwegian flag — Stortinget",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/no.html",
+              "title": "UN Statistics Division country profile — Norway",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/no.html",
+              "title": "UN Statistics Division country profile — Norway",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Norway.svg&oldid=1269120819",
+              "title": "File:Flag of Norway.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.stortinget.no/no/english/About-the-Storting/the-norwegian-flag/",
+              "title": "The Norwegian flag — Stortinget",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.stortinget.no/no/english/About-the-Storting/the-norwegian-flag/",
+              "title": "The Norwegian flag — Stortinget",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Use the plain civil flag, without historic union mark."
+    },
+    {
+      "country_id": "finland",
+      "name": "Finland",
+      "continent": "Europe",
+      "region": "Northern Europe",
+      "capitals": [
+        {
+          "name": "Helsinki"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/finland.png",
+        "sha256": "e814641d284bee632fc711a686fa21f32e1d5b71872d6dee8afa2426c6bb79cf",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Finland.svg&oldid=1254052092",
+        "licence": "public-domain",
+        "attribution": "Unknown",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Finland.svg; original SVG SHA1 4ba6e5300c3ddd64f581df014e3aea3ad7254882. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "Finland's blue-cross national flag became official in 1918, shortly after independence.",
+        "sources": [
+          {
+            "url": "https://finland.fi/facts-stats-and-info/the-finnish-flag/",
+            "title": "The Finnish flag — ThisisFINLAND",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/fi.html",
+              "title": "UN Statistics Division country profile — Finland",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/fi.html",
+              "title": "UN Statistics Division country profile — Finland",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Finland.svg&oldid=1254052092",
+              "title": "File:Flag of Finland.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://finland.fi/facts-stats-and-info/the-finnish-flag/",
+              "title": "The Finnish flag — ThisisFINLAND",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://finland.fi/facts-stats-and-info/the-finnish-flag/",
+              "title": "The Finnish flag — ThisisFINLAND",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Civil national flag chosen, not the state flag bearing arms."
+    },
+    {
+      "country_id": "denmark",
+      "name": "Denmark",
+      "continent": "Europe",
+      "region": "Northern Europe",
+      "capitals": [
+        {
+          "name": "Copenhagen"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/denmark.png",
+        "sha256": "5304ba0c6937630a63083d6483933038521bfeeba35b6f435534a5635129a935",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Denmark.svg&oldid=1282500602",
+        "licence": "public-domain",
+        "attribution": "Madden and others",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Denmark.svg; original SVG SHA1 f22f7a2eb507e529f963ad514a03e0ca1bfd6cc6. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "Denmark's flag is called Dannebrog, meaning the cloth of the Danes.",
+        "sources": [
+          {
+            "url": "https://um.dk/estland/en/denmark-and-estonia/national-symbols/danish-national-flag",
+            "title": "Danish national flag — Danish Ministry of Foreign Affairs",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/dk.html",
+              "title": "UN Statistics Division country profile — Denmark",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/dk.html",
+              "title": "UN Statistics Division country profile — Denmark",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Denmark.svg&oldid=1282500602",
+              "title": "File:Flag of Denmark.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://um.dk/estland/en/denmark-and-estonia/national-symbols/danish-national-flag",
+              "title": "Danish national flag — Danish Ministry of Foreign Affairs",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://um.dk/estland/en/denmark-and-estonia/national-symbols/danish-national-flag",
+              "title": "Danish national flag — Danish Ministry of Foreign Affairs",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. The 1219 falling-from-sky story is a legend, not an established origin date. Rectangular stutflag selected."
+    },
+    {
+      "country_id": "poland",
+      "name": "Poland",
+      "continent": "Europe",
+      "region": "Eastern Europe",
+      "capitals": [
+        {
+          "name": "Warsaw"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/poland.png",
+        "sha256": "f20fa5959026820dab1e6a8601b7a2027fd3a16f468173f37912c7597801bed9",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Poland.svg&oldid=842002303",
+        "licence": "public-domain",
+        "attribution": "See below.",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Poland.svg; original SVG SHA1 55b10f15941c2e8e8c8bb5501567cf96958d1a36. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "Poland's white-over-red colours come from heraldry, including its white eagle on a red shield.",
+        "sources": [
+          {
+            "url": "https://www.gov.pl/web/diplomacy/polands-day-of-the-flag",
+            "title": "Poland’s Day of the Flag — Polish Ministry of Foreign Affairs",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/pl.html",
+              "title": "UN Statistics Division country profile — Poland",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/pl.html",
+              "title": "UN Statistics Division country profile — Poland",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Poland.svg&oldid=842002303",
+              "title": "File:Flag of Poland.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.gov.pl/web/diplomacy/polands-day-of-the-flag",
+              "title": "Poland’s Day of the Flag — Polish Ministry of Foreign Affairs",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.gov.pl/web/diplomacy/polands-day-of-the-flag",
+              "title": "Poland’s Day of the Flag — Polish Ministry of Foreign Affairs",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Plain civil flag selected, not the state/ensign variant bearing arms."
+    },
+    {
+      "country_id": "greece",
+      "name": "Greece",
+      "continent": "Europe",
+      "region": "Southern Europe",
+      "capitals": [
+        {
+          "name": "Athens"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/greece.png",
+        "sha256": "a867aa30d64e7849a70f9dd0abe1ed9f05d03782d4be902745a1d573679ee73a",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Greece.svg&oldid=1258159256",
+        "licence": "public-domain",
+        "attribution": "Unknown author Unknown author",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Greece.svg; original SVG SHA1 b88251a34cc7e113a42296a0b2c6f8622d453373. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "Greece's striped design began as a sea flag; its early land flag used a simple cross.",
+        "sources": [
+          {
+            "url": "https://www.presidency.gr/en/presidency/the-flag/",
+            "title": "The Flag — Presidency of the Hellenic Republic",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/gr.html",
+              "title": "UN Statistics Division country profile — Greece",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/gr.html",
+              "title": "UN Statistics Division country profile — Greece",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Greece.svg&oldid=1258159256",
+              "title": "File:Flag of Greece.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.presidency.gr/en/presidency/the-flag/",
+              "title": "The Flag — Presidency of the Hellenic Republic",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.presidency.gr/en/presidency/the-flag/",
+              "title": "The Flag — Presidency of the Hellenic Republic",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Avoid unqualified historical claims about nine stripes representing motto syllables; selected fact uses documented flag types."
+    },
+    {
+      "country_id": "india",
+      "name": "India",
+      "continent": "Asia",
+      "region": "Southern Asia",
+      "capitals": [
+        {
+          "name": "New Delhi"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/india.png",
+        "sha256": "1ae45ea8ca83aa66652b81298cd6e242454111d01ec4801ac0c5936d418081eb",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_India.svg&oldid=1291257205",
+        "licence": "public-domain",
+        "attribution": "Government of India",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of India.svg; original SVG SHA1 e69ebcb30211f4f175bd61942547946a97c7340e. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "India's navy-blue Ashoka Chakra has 24 spokes, inspired by the wheel on Ashoka's lion capital.",
+        "sources": [
+          {
+            "url": "https://www.hcimbabane.gov.in/page/nation-brief/",
+            "title": "Nation Brief — High Commission of India, Mbabane",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/in.html",
+              "title": "UN Statistics Division country profile — India",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/in.html",
+              "title": "UN Statistics Division country profile — India",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_India.svg&oldid=1291257205",
+              "title": "File:Flag of India.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.hcimbabane.gov.in/page/nation-brief/",
+              "title": "Nation Brief — High Commission of India, Mbabane",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.hcimbabane.gov.in/page/nation-brief/",
+              "title": "Nation Brief — High Commission of India, Mbabane",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Use flag geometry, not unqualified spoke-by-spoke symbolism. National-symbol usage restrictions require review."
+    },
+    {
+      "country_id": "south-korea",
+      "name": "South Korea",
+      "continent": "Asia",
+      "region": "Eastern Asia",
+      "capitals": [
+        {
+          "name": "Seoul"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/south-korea.png",
+        "sha256": "d17e0a4e48930658e4ed9337b46d239a7149b7a27bf6aec52ed1e2a7d89cd21c",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_South_Korea.svg&oldid=1271357108",
+        "licence": "public-domain",
+        "attribution": "Original: Government of the Republic of Korea Vector: Great Brightstar and others",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of South Korea.svg; original SVG SHA1 c2586af8d4b164b684d206037e4278af3c8d53c2. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "South Korea's four black trigrams represent sky, earth, water and fire.",
+        "sources": [
+          {
+            "url": "https://www.mois.go.kr/eng/sub/a03/nationalSymbol/screen.do",
+            "title": "The National Flag — Ministry of the Interior and Safety, Republic of Korea",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/kr.html",
+              "title": "UN Statistics Division country profile — South Korea",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/kr.html",
+              "title": "UN Statistics Division country profile — South Korea",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_South_Korea.svg&oldid=1271357108",
+              "title": "File:Flag of South Korea.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.mois.go.kr/eng/sub/a03/nationalSymbol/screen.do",
+              "title": "The National Flag — Ministry of the Interior and Safety, Republic of Korea",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.mois.go.kr/eng/sub/a03/nationalSymbol/screen.do",
+              "title": "The National Flag — Ministry of the Interior and Safety, Republic of Korea",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Display name South Korea corresponds to Republic of Korea; distinguish from Democratic People’s Republic of Korea."
+    },
+    {
+      "country_id": "mexico",
+      "name": "Mexico",
+      "continent": "North America",
+      "region": "Central America",
+      "capitals": [
+        {
+          "name": "Mexico City"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/mexico.png",
+        "sha256": "e043703b28105c88b4a74bc9e36fd5a706cd19b78dc30accb23bdf7180949d7b",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Mexico.svg&oldid=1291254298",
+        "licence": "public-domain",
+        "attribution": "Omar Alejandro Covarrubias Neri , 9 April 2006. Based on the 1968 arms by Francisco Eppens Helguera and Juan Manuel Gabino Villascán.",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Mexico.svg; original SVG SHA1 580aa7f038cdab20cf0b91dccd4d23bbdeb44b1c. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "Mexico's eagle, cactus and snake recall the traditional story of Tenochtitlan's founding.",
+        "sources": [
+          {
+            "url": "https://archivos.gob.mx/transparencia/pdf/SimbolosPatrios.pdf",
+            "title": "Nuestros símbolos patrios — Archivo General de la Nación",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/mx.html",
+              "title": "UN Statistics Division country profile — Mexico",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/mx.html",
+              "title": "UN Statistics Division country profile — Mexico",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Mexico.svg&oldid=1291254298",
+              "title": "File:Flag of Mexico.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://archivos.gob.mx/transparencia/pdf/SimbolosPatrios.pdf",
+              "title": "Nuestros símbolos patrios — Archivo General de la Nación",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://archivos.gob.mx/transparencia/pdf/SimbolosPatrios.pdf",
+              "title": "Nuestros símbolos patrios — Archivo General de la Nación",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Claim is explicitly about a traditional story, not archaeological proof. Review national-symbol use and obverse orientation."
+    },
+    {
+      "country_id": "argentina",
+      "name": "Argentina",
+      "continent": "South America",
+      "region": "South America",
+      "capitals": [
+        {
+          "name": "Buenos Aires"
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/argentina.png",
+        "sha256": "aa2e72c3f5ce6de54cd4270594e4ccc0e3d7c63aa9dbe562ea32e631d3a5b209",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Argentina.svg&oldid=1274988508",
+        "licence": "public-domain",
+        "attribution": "Manuel Belgrano",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of Argentina.svg; original SVG SHA1 b54fa14d4d27a1dc3f763d650f9e5afe155e376b. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "The sun on Argentina's flag has 32 rays, alternating straight and wavy.",
+        "sources": [
+          {
+            "url": "https://www.argentina.gob.ar/pais/simbolos/bandera",
+            "title": "Bandera Nacional — Government of Argentina",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/ar.html",
+              "title": "UN Statistics Division country profile — Argentina",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/ar.html",
+              "title": "UN Statistics Division country profile — Argentina",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_Argentina.svg&oldid=1274988508",
+              "title": "File:Flag of Argentina.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.argentina.gob.ar/pais/simbolos/bandera",
+              "title": "Bandera Nacional — Government of Argentina",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.argentina.gob.ar/pais/simbolos/bandera",
+              "title": "Bandera Nacional — Government of Argentina",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. Sun-bearing official national flag selected; avoid sky-colour origin myths."
+    },
+    {
+      "country_id": "south-africa",
+      "name": "South Africa",
+      "continent": "Africa",
+      "region": "Southern Africa",
+      "capitals": [
+        {
+          "name": "Pretoria",
+          "role": "administrative"
+        },
+        {
+          "name": "Cape Town",
+          "role": "legislative"
+        },
+        {
+          "name": "Bloemfontein",
+          "role": "judicial",
+          "notes": "Conventional judicial capital; home of Supreme Court of Appeal. Constitutional Court is in Johannesburg."
+        }
+      ],
+      "flag": {
+        "path": "assets/flags/south-africa.png",
+        "sha256": "e49dba2d28485b97decbc1bb4c4f49506fb76a65a7f41ab184d894196a1fb2d6",
+        "source_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_South_Africa.svg&oldid=1249969430",
+        "licence": "public-domain",
+        "attribution": "Flag design by Frederick Brownell , image by Wikimedia Commons users",
+        "notes": "Wikimedia-generated 1920px PNG derivative of File:Flag of South Africa.svg; original SVG SHA1 a6492326c0f2734ba0e35089a50e97cb476df574. National-symbol/insignia restrictions remain subject to human use-context review."
+      },
+      "flag_learning_fact": {
+        "text": "South Africa's Y-shape is interpreted as diverse elements of society converging in unity.",
+        "sources": [
+          {
+            "url": "https://www.gov.za/about-sa/national-flag-1",
+            "title": "National flag — South African Government",
+            "accessed_on": "2026-10-26"
+          }
+        ]
+      },
+      "eligibility": {
+        "flag_identification": true,
+        "capital_questions": false,
+        "outline_identification": false
+      },
+      "verification": {
+        "identity": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/za.html",
+              "title": "UN Statistics Division country profile — South Africa",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "capitals": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://data.un.org/legacy/en/iso/za.html",
+              "title": "UN Statistics Division country profile — South Africa",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.gov.za/about-sa/south-africas-provinces",
+              "title": "South Africa’s provinces — South African Government",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://commons.wikimedia.org/w/index.php?title=File%3AFlag_of_South_Africa.svg&oldid=1249969430",
+              "title": "File:Flag of South Africa.svg — source-file page",
+              "accessed_on": "2026-10-26"
+            },
+            {
+              "url": "https://www.gov.za/about-sa/national-flag-1",
+              "title": "National flag — South African Government",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        },
+        "flag_learning_fact": {
+          "status": "needs_verification",
+          "sources": [
+            {
+              "url": "https://www.gov.za/about-sa/national-flag-1",
+              "title": "National flag — South African Government",
+              "accessed_on": "2026-10-26"
+            }
+          ]
+        }
+      },
+      "notes": "Research draft; human UAT and publication approval pending. Capital/outline quizzes disabled for this flag-only pilot. No universal meaning assigned to individual colours. Three capitals retained; Bloemfontein houses Supreme Court of Appeal, Constitutional Court is in Johannesburg."
+    }
+  ]
+}
