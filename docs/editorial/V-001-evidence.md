@@ -2,6 +2,10 @@
 
 Prepared by Codex on 2026-10-26. **No human verification or editorial approval has been recorded.**
 This register supports inspection of exact draft facts and assets; it does not establish publication readiness.
+M2b preparation is merged in [PR #4](https://github.com/neildavies92/quiztalcoatl/pull/4), while
+editorial acceptance continues separately in M2c. The production snapshot remains draft; merged
+code, source research and green CI are not human approval. Record genuine decisions in
+[the M2c decision register](V-001-decisions.md) after following [the UAT steps](V-001-review.md).
 
 ## Editorial seed and scope
 
@@ -223,6 +227,7 @@ and per-file dimensions via the local provenance register; they cannot prove leg
   not invented universal meanings for each colour. Denmark's 1219 story is explicitly a legend,
   and is not the selected fact. Greece avoids unqualified motto-syllable origin claims.
 - The proposed 355-second recipe and placeholder *identifier* `geography-pilot` need final
-  timing/theme UAT. No theme implementation or rendering is provided.
+  timing and identifier acceptance. Accepting `geography-pilot` as a future configuration reference
+  is distinct from visual-theme UAT; no theme configuration or rendering is provided.
 
 Complete [the country-by-country review](V-001-review.md) before changing review metadata.
