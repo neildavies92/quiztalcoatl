@@ -13,9 +13,10 @@ from test_resolver import SyntheticInputs
 from test_resolver import inputs as inputs
 
 from quiztalcoatl.graphics import (
+    BACKGROUND,
     GOLD,
     INK,
-    PAPER,
+    SURFACE,
     TEAL,
     WHITE,
     Box,
@@ -61,10 +62,7 @@ def test_question_png_size_determinism_and_original_content(
         next(block.text for block in first.text_blocks if block.role == "headline")
         == question.prompt
     )
-    assert (
-        next(block.text for block in first.text_blocks if block.role == "progress")
-        == "QUESTION 01 / 15"
-    )
+    assert next(block.text for block in first.text_blocks if block.role == "progress") == "01 / 15"
 
 
 def test_recorded_geometry_matches_actual_text_draws_and_option_order(
@@ -97,14 +95,13 @@ def test_reveal_uses_resolved_correct_answer_and_fact(
     blocks = {block.role: block for block in card.text_blocks}
     assert blocks["headline"].text == question.correct_answer.label
     assert blocks["explanation"].text == question.explanation.text
-    assert blocks[f"option-{question.correct_answer_index}"].foreground == WHITE
-    assert blocks[f"option-{question.correct_answer_index}"].background == TEAL
+    assert blocks[f"option-{question.correct_answer_index}"].foreground == INK
+    assert blocks[f"option-{question.correct_answer_index}"].background == GOLD
     # Verify the selected card's actual fill, rather than trusting only diagnostics.
-    assert card.image.getpixel((1818, 244 + question.correct_answer_index * 146 + 63)) == (
-        20,
-        92,
-        86,
-    )
+    index = question.correct_answer_index
+    x = 72 + (index % 2) * 910
+    y = 764 + (index // 2) * 132
+    assert card.image.getpixel((x + 836, y + 56)) == (255, 212, 91)
 
 
 @pytest.mark.parametrize(
@@ -119,8 +116,8 @@ def test_flag_aspect_ratio_and_bounds(
     question.asset.sha256 = hashlib.sha256(path.read_bytes()).hexdigest()
     card = render_card(question, CardLayout(15), content_root=inputs.root, fonts=fonts)
     box = card.flag_box
-    assert Box(128, 421, 944, 344).contains(box)
-    scale = min(944 / dimensions[0], 344 / dimensions[1])
+    assert Box(144, 294, 1100, 440).contains(box)
+    scale = min(1100 / dimensions[0], 440 / dimensions[1])
     assert (box.width, box.height) == tuple(max(1, round(value * scale)) for value in dimensions)
     assert card.flag_source_size == dimensions
     assert card.image.getpixel((box.x + box.width // 2, box.y + box.height // 2)) == (255, 0, 0)
@@ -299,21 +296,24 @@ def test_layout_invalid_ordinals_and_explicit_preview_status(
         render_card(question, CardLayout(15), content_root=inputs.root, fonts=fonts)
     question.ordinal = 7
     card = render_card(question, CardLayout(15, "TEST ONLY"), content_root=inputs.root, fonts=fonts)
-    assert (
-        next(block.text for block in card.text_blocks if block.role == "progress")
-        == "QUESTION 07 / 15"
-    )
+    assert next(block.text for block in card.text_blocks if block.role == "progress") == "07 / 15"
     assert (
         next(block.text for block in card.text_blocks if block.role == "preview-label")
         == "TEST ONLY"
     )
-    assert "MASCOT PENDING" in next(
-        block.text for block in card.text_blocks if block.role == "brand-status"
+    assert "human design UAT pending" in card.design_status
+    assert not any(
+        block.role in {"brand-status", "mascot-placeholder"} for block in card.text_blocks
     )
 
 
 def test_palette_contrast_baseline() -> None:
-    for foreground, background in [(INK, PAPER), (TEAL, PAPER), (WHITE, TEAL), (GOLD, INK)]:
+    for foreground, background in [
+        (WHITE, BACKGROUND),
+        (WHITE, SURFACE),
+        (GOLD, TEAL),
+        (GOLD, INK),
+    ]:
         assert contrast_ratio(foreground, background) > 4.5
 
 
@@ -342,3 +342,59 @@ def test_non_directory_output_root_has_actionable_error(
     with pytest.raises(GraphicsError, match="Cannot save PNG"):
         save_png(card, blocked, "card.png")
     assert blocked.read_bytes() == b"not a directory"
+
+
+def test_two_by_two_answer_geometry_and_progress_pips(
+    inputs: SyntheticInputs, question: ResolvedQuestion, fonts: FontSet
+) -> None:
+    question.ordinal = 7
+    card = render_card(question, CardLayout(15), content_root=inputs.root, fonts=fonts)
+    blocks = {block.role: block for block in card.text_blocks}
+    assert blocks["option-0"].box.y == blocks["option-1"].box.y
+    assert blocks["option-2"].box.y == blocks["option-3"].box.y
+    assert blocks["option-0"].box.y < blocks["option-2"].box.y
+    assert blocks["option-0"].box.x < blocks["option-1"].box.x
+    # The current pip and completed/remaining pips are three distinct real fills.
+    assert card.image.getpixel((928, 96)) == (255, 212, 91)
+    assert card.image.getpixel((740, 96)) != card.image.getpixel((1184, 96))
+
+
+def test_explicit_transparent_brand_art_proportions_and_source_safety(
+    inputs: SyntheticInputs, question: ResolvedQuestion, fonts: FontSet
+) -> None:
+    brand = inputs.root / "synthetic-brand.png"
+    artwork = Image.new("RGBA", (400, 300), (0, 0, 0, 0))
+    ImageDraw.Draw(artwork).rectangle((100, 50, 300, 250), fill=(255, 90, 20, 255))
+    artwork.save(brand)
+    before = brand.read_bytes()
+    card = render_card(
+        question, CardLayout(15), content_root=inputs.root, fonts=fonts, brand_asset=brand
+    )
+    assert card.brand_box is not None
+    box = card.brand_box
+    assert Box(1270, 264, 560, 470).contains(box)
+    assert box.width * 3 == box.height * 4
+    assert card.image.getpixel((box.x + box.width // 2, box.y + box.height // 2)) == (255, 90, 20)
+    assert card.image.getpixel((box.x + 2, box.y + 2)) != (255, 90, 20)
+    assert brand.read_bytes() == before
+    with pytest.raises(GraphicsError, match="brand asset"):
+        save_png(card, inputs.root, brand.name, overwrite=True)
+
+
+@pytest.mark.parametrize("kind", ["missing", "corrupt", "rgb", "opaque-rgba", "invisible"])
+def test_bad_brand_asset_is_actionable(
+    inputs: SyntheticInputs, question: ResolvedQuestion, fonts: FontSet, kind: str
+) -> None:
+    brand = inputs.root / "brand.png"
+    if kind == "corrupt":
+        brand.write_bytes(b"bad PNG")
+    elif kind == "rgb":
+        Image.new("RGB", (10, 10), "white").save(brand)
+    elif kind == "opaque-rgba":
+        Image.new("RGBA", (10, 10), (255, 255, 255, 255)).save(brand)
+    elif kind == "invisible":
+        Image.new("RGBA", (10, 10), (0, 0, 0, 0)).save(brand)
+    with pytest.raises(GraphicsError, match="brand asset"):
+        render_card(
+            question, CardLayout(15), content_root=inputs.root, fonts=fonts, brand_asset=brand
+        )

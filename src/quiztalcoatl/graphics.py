@@ -13,13 +13,15 @@ from PIL import Image, ImageDraw, ImageFont
 from quiztalcoatl.content import ContentError, check_asset
 from quiztalcoatl.models import ResolvedQuestion
 
-PAPER = "#F4F1E8"
-INK = "#183B3D"
-TEAL = "#145C56"
-MUTED = "#506665"
-GOLD = "#F1C86C"
-WHITE = "#FFFFFF"
-LINE = "#D9E1D8"
+BACKGROUND = "#071F26"
+INK = "#062329"
+TEAL = "#17634F"
+SURFACE = "#12383E"
+MUTED = "#BDD7CD"
+GOLD = "#FFD45B"
+CORAL = "#FF976A"
+WHITE = "#F7FFF7"
+LINE = "#2E6763"
 
 
 class GraphicsError(ValueError):
@@ -114,6 +116,9 @@ class RenderedCard:
     option_ids: tuple[str, ...]
     highlighted_index: int | None
     source_asset: Path
+    brand_box: Box | None = None
+    brand_source: Path | None = None
+    design_status: str = "Visual proposal; human design UAT pending"
 
 
 def contrast_ratio(first: str, second: str) -> float:
@@ -164,10 +169,11 @@ def _text(
     size: int,
     minimum: int | None = None,
     bold: bool = False,
-    color: str = INK,
-    background: str = PAPER,
+    color: str = WHITE,
+    background: str = BACKGROUND,
     max_lines: int = 1,
     align: Literal["left", "center"] = "left",
+    balance: bool = False,
 ) -> None:
     if not text.strip():
         raise GraphicsError(f"{role}: text must not be empty")
@@ -175,6 +181,18 @@ def _text(
     for candidate in range(size, lower - 1, -1):
         font = fonts.at(candidate, bold=bold)
         lines = _lines(text, font, box.width)
+        if balance and lines is not None and len(lines) == 2 and "\n" not in text:
+            words = text.split()
+            pairs = [
+                (" ".join(words[:split]), " ".join(words[split:])) for split in range(1, len(words))
+            ]
+            fitting = [
+                pair for pair in pairs if all(font.getlength(line) <= box.width for line in pair)
+            ]
+            if fitting:
+                lines = min(
+                    fitting, key=lambda pair: abs(font.getlength(pair[0]) - font.getlength(pair[1]))
+                )
         advance = math.ceil(candidate * 1.22)
         if lines is None or len(lines) > max_lines or advance * len(lines) > box.height:
             continue
@@ -213,6 +231,38 @@ def _flag(question: ResolvedQuestion, root: Path) -> tuple[Image.Image, Path]:
         raise GraphicsError(f"flag for {question.question_id}: {exc}") from exc
 
 
+def _brand(path: Path) -> Image.Image:
+    try:
+        if not path.is_file():
+            raise GraphicsError(f"brand asset must be a regular PNG file: {path}")
+        with Image.open(path) as image:
+            if image.format != "PNG":
+                raise GraphicsError(f"brand asset must contain PNG data: {path}")
+            image.verify()
+        with Image.open(path) as image:
+            artwork = image.convert("RGBA")
+            alpha = artwork.getchannel("A")
+            if alpha.getextrema()[0] != 0 or alpha.getbbox() is None:
+                raise GraphicsError(
+                    "brand asset must contain visible artwork on a truly transparent PNG "
+                    f"background: {path}"
+                )
+            return artwork
+    except (OSError, SyntaxError, Image.DecompressionBombError) as exc:
+        raise GraphicsError(f"Cannot read brand asset {path}: {exc}") from exc
+
+
+def _fitted_box(source_size: tuple[int, int], maximum: Box) -> Box:
+    scale = min(maximum.width / source_size[0], maximum.height / source_size[1])
+    size = tuple(max(1, round(value * scale)) for value in source_size)
+    return Box(
+        maximum.x + (maximum.width - size[0]) // 2,
+        maximum.y + (maximum.height - size[1]) // 2,
+        size[0],
+        size[1],
+    )
+
+
 def render_card(
     question: ResolvedQuestion,
     layout: CardLayout,
@@ -220,154 +270,185 @@ def render_card(
     content_root: Path,
     fonts: FontSet,
     reveal: bool = False,
+    brand_asset: Path | None = None,
 ) -> RenderedCard:
-    """Render one static question or reveal, preserving resolved answers and asset ratio.
+    """Render an energetic static flag question/reveal without selecting editorial content.
 
-    The caller must supply a genuinely approved manifest or clearly labelled synthetic
-    test content. Graphics do not confer editorial approval or resolve questions.
+    The caller supplies genuinely approved content or explicitly synthetic fixtures.
+    Optional brand artwork is an explicit local PNG, never an inferred or fetched logo.
     """
-    # Revalidate mutable models so invalid answer indices cannot silently change the display.
     question = ResolvedQuestion.model_validate_json(question.model_dump_json())
     if question.ordinal > layout.total_questions:
         raise GraphicsError("question ordinal exceeds total_questions")
     flag, source = _flag(question, content_root)
-    image = Image.new("RGB", (1920, 1080), PAPER)
+    image = Image.new("RGB", (1920, 1080), BACKGROUND)
     draw = ImageDraw.Draw(image)
     blocks: list[TextBlock] = []
-    # A restrained edge accent and atlas-like coordinate lines establish a repeatable frame.
-    draw.rectangle((0, 0, 1920, 12), fill=TEAL)
-    draw.line((72, 166, 1848, 166), fill=LINE, width=2)
-    draw.rounded_rectangle((72, 72, 136, 136), radius=14, outline=MUTED, width=2)
+    # Restrained stadium-like depth, with no decoration behind critical text.
+    draw.polygon([(0, 270), (960, 120), (1920, 270), (1920, 748), (0, 748)], fill="#0A2C32")
+    draw.polygon([(0, 460), (600, 300), (1200, 748), (0, 748)], fill="#0C363A")
+    draw.polygon([(1590, 0), (1920, 0), (1920, 500)], fill="#0D383A")
+    # Keep the complete text header on one actual, audited dark surface.
+    draw.rectangle((0, 0, 1920, 320 if reveal else 280), fill=BACKGROUND)
+    draw.line([(72, 138), (1848, 138)], fill=LINE, width=2)
+    draw.rounded_rectangle((72, 136, 340, 141), radius=2, fill=GOLD)
+    draw.line([(1774, 142), (1848, 142)], fill=CORAL, width=5)
     _text(
         draw,
         blocks,
         fonts,
-        "mascot-placeholder",
-        "ART\nTBC",
-        Box(77, 78, 54, 48),
-        size=13,
-        max_lines=2,
-        align="center",
-        color=MUTED,
-    )
-    _text(draw, blocks, fonts, "brand", "QUIZtalcoatl", Box(156, 72, 500, 56), size=43, bold=True)
-    _text(
-        draw,
-        blocks,
-        fonts,
-        "brand-status",
-        "PROPOSED WORDMARK • MASCOT PENDING",
-        Box(158, 128, 660, 24),
-        size=16,
-        color=MUTED,
-    )
-    _text(
-        draw,
-        blocks,
-        fonts,
-        "series",
-        "GEOGRAPHY / FLAGS",
-        Box(940, 82, 490, 38),
-        size=25,
+        "brand",
+        "QUIZtalcoatl",
+        Box(72, 72, 460, 50),
+        size=35,
         bold=True,
-        color=TEAL,
+        color=GOLD,
     )
-    draw.rounded_rectangle((1500, 72, 1848, 140), radius=34, fill=INK)
+    pip_width = max(3, min(26, (558 - 6 * (layout.total_questions - 1)) // layout.total_questions))
+    gap = 6
+    total_width = layout.total_questions * pip_width + (layout.total_questions - 1) * gap
+    start = 960 - total_width // 2
+    for index in range(layout.total_questions):
+        color = (
+            GOLD
+            if index == question.ordinal - 1
+            else (TEAL if index < question.ordinal - 1 else SURFACE)
+        )
+        x = start + index * (pip_width + gap)
+        draw.rounded_rectangle((x, 88, x + pip_width, 104), radius=6, fill=color)
     _text(
         draw,
         blocks,
         fonts,
         "progress",
-        f"QUESTION {question.ordinal:02} / {layout.total_questions:02}",
-        Box(1515, 85, 318, 38),
-        size=25,
+        f"{question.ordinal:02} / {layout.total_questions:02}",
+        Box(1580, 72, 268, 50),
+        size=34,
         bold=True,
-        color=WHITE,
-        background=INK,
         align="center",
+        color=WHITE,
     )
-    eyebrow = "THE ANSWER IS" if reveal else "NAME THE COUNTRY"
-    _text(
-        draw,
-        blocks,
-        fonts,
-        "eyebrow",
-        eyebrow,
-        Box(72, 190, 1056, 34),
-        size=23,
-        color=TEAL,
-        bold=True,
-    )
-    headline = question.correct_answer.label if reveal else question.prompt
+    if reveal:
+        draw.rounded_rectangle((704, 156, 1216, 202), radius=22, fill=GOLD)
+        _text(
+            draw,
+            blocks,
+            fonts,
+            "eyebrow",
+            "CORRECT ANSWER",
+            Box(718, 163, 484, 32),
+            size=24,
+            bold=True,
+            align="center",
+            color=INK,
+            background=GOLD,
+        )
+        headline, headline_box = question.correct_answer.label, Box(72, 216, 1776, 100)
+        headline_color = GOLD
+    else:
+        headline, headline_box = question.prompt, Box(72, 162, 1776, 118)
+        headline_color = WHITE
     _text(
         draw,
         blocks,
         fonts,
         "headline",
         headline,
-        Box(72, 236, 1056, 146),
-        size=62,
-        minimum=48,
-        max_lines=2,
+        headline_box,
+        size=78,
+        minimum=52,
+        max_lines=1 if reveal else 2,
         bold=True,
+        align="center",
+        color=headline_color,
     )
-    _text(
-        draw,
-        blocks,
-        fonts,
-        "options-heading",
-        "CORRECT ANSWER" if reveal else "CHOOSE YOUR ANSWER",
-        Box(1200, 190, 648, 34),
-        size=23,
-        bold=True,
-        color=TEAL,
+    maximum = Box(144, 328 if reveal else 294, 1100, 278 if reveal else 440)
+    flag_box = _fitted_box(flag.size, maximum)
+    # The flag floats directly in the hero area, with its own subtle edge and shadow.
+    draw.rectangle(
+        (
+            flag_box.x + 11,
+            flag_box.y + 14,
+            flag_box.x + flag_box.width + 11,
+            flag_box.y + flag_box.height + 14,
+        ),
+        fill="#03181C",
     )
-    panel = Box(72, 386, 1056, 414)
-    draw.rounded_rectangle(
-        (panel.x, panel.y + 8, panel.x + panel.width, panel.y + panel.height + 8),
-        radius=28,
-        fill="#E4E5DC",
-    )
-    draw.rounded_rectangle(panel.bounds, radius=28, fill=WHITE, outline=LINE, width=2)
-    maximum = Box(128, 421, 944, 344)
-    scale = min(maximum.width / flag.width, maximum.height / flag.height)
-    flag_size = (max(1, round(flag.width * scale)), max(1, round(flag.height * scale)))
-    flag_box = Box(
-        maximum.x + (maximum.width - flag_size[0]) // 2,
-        maximum.y + (maximum.height - flag_size[1]) // 2,
-        *flag_size,
-    )
-    resized = flag.resize(flag_size, Image.Resampling.LANCZOS)
+    draw.rectangle(flag_box.bounds, fill=WHITE)
+    resized = flag.resize((flag_box.width, flag_box.height), Image.Resampling.LANCZOS)
     image.paste(resized, (flag_box.x, flag_box.y), resized)
-    draw.rectangle(flag_box.bounds, outline=LINE, width=1)
+    draw.rectangle(flag_box.bounds, outline="#577977", width=2)
+    brand_box: Box | None = None
+    brand_source: Path | None = None
+    if brand_asset is not None:
+        artwork = _brand(brand_asset)
+        brand_source = brand_asset.resolve()
+        brand_box = _fitted_box(
+            artwork.size, Box(1270, 294 if reveal else 264, 560, 320 if reveal else 470)
+        )
+        artwork = artwork.resize((brand_box.width, brand_box.height), Image.Resampling.LANCZOS)
+        image.paste(artwork, (brand_box.x, brand_box.y), artwork)
+    if reveal:
+        draw.rounded_rectangle((72, 626, 1848, 744), radius=18, fill=SURFACE)
+        draw.rounded_rectangle((72, 626, 82, 744), radius=5, fill=CORAL)
+        _text(
+            draw,
+            blocks,
+            fonts,
+            "fact-label",
+            "FLAG\nFACT",
+            Box(104, 652, 124, 64),
+            size=23,
+            max_lines=2,
+            bold=True,
+            color=GOLD,
+            background=SURFACE,
+        )
+        _text(
+            draw,
+            blocks,
+            fonts,
+            "explanation",
+            question.explanation.text,
+            Box(260, 636, 1556, 96),
+            size=38,
+            minimum=34,
+            max_lines=2,
+            color=WHITE,
+            background=SURFACE,
+            balance=True,
+        )
     for index, option in enumerate(question.options):
         selected = reveal and index == question.correct_answer_index
-        box = Box(1200, 244 + index * 146, 648, 126)
-        fill, color = (TEAL, WHITE) if selected else (WHITE, INK)
+        box = Box(72 + (index % 2) * 910, 764 + (index // 2) * 132, 866, 112)
+        fill, color = (GOLD, INK) if selected else (SURFACE, WHITE)
         draw.rounded_rectangle(
-            (box.x, box.y + 5, box.x + box.width, box.y + box.height + 5), radius=24, fill="#E4E5DC"
+            (box.x, box.y + 7, box.x + box.width, box.y + box.height + 7), radius=22, fill="#03181C"
         )
         draw.rounded_rectangle(
             box.bounds,
-            radius=24,
+            radius=22,
             fill=fill,
-            outline=TEAL if selected else LINE,
-            width=3 if selected else 2,
+            outline=GOLD if selected else LINE,
+            width=4 if selected else 2,
         )
-        badge = Box(box.x + 22, box.y + 35, 56, 56)
-        draw.ellipse(badge.bounds, fill=GOLD if selected else PAPER)
+        draw.rounded_rectangle(
+            (box.x + 8, box.y + 8, box.x + 108, box.y + 104),
+            radius=16,
+            fill=INK if selected else TEAL,
+        )
         _text(
             draw,
             blocks,
             fonts,
             f"option-letter-{index}",
             chr(65 + index),
-            Box(badge.x, badge.y + 1, 56, 48),
-            size=29,
+            Box(box.x + 17, box.y + 20, 82, 76),
+            size=53,
             bold=True,
             align="center",
-            color=INK,
-            background=GOLD if selected else PAPER,
+            color=GOLD,
+            background=INK if selected else TEAL,
         )
         _text(
             draw,
@@ -375,43 +456,14 @@ def render_card(
             fonts,
             f"option-{index}",
             option.label,
-            Box(box.x + 102, box.y + 14, 520, 98),
-            size=43,
+            Box(box.x + 138, box.y + 10, 700, 94),
+            size=48,
             minimum=36,
             max_lines=2,
             bold=True,
             color=color,
             background=fill,
         )
-    footer = Box(72, 846, 1776, 162)
-    draw.rounded_rectangle(footer.bounds, radius=24, fill=INK if reveal else "#E5EBE2")
-    _text(
-        draw,
-        blocks,
-        fonts,
-        "footer-label",
-        "DID YOU KNOW?" if reveal else "YOUR NEXT MOVE",
-        Box(104, 860, 1712, 34),
-        size=22,
-        color=GOLD if reveal else TEAL,
-        background=INK if reveal else "#E5EBE2",
-        bold=True,
-    )
-    _text(
-        draw,
-        blocks,
-        fonts,
-        "explanation" if reveal else "instruction",
-        question.explanation.text
-        if reveal
-        else "Pick A, B, C or D. What does your geography instinct say?",
-        Box(104, 903, 1712, 86),
-        size=38,
-        minimum=34,
-        max_lines=2,
-        color=WHITE if reveal else INK,
-        background=INK if reveal else "#E5EBE2",
-    )
     if layout.preview_label:
         _text(
             draw,
@@ -419,8 +471,8 @@ def render_card(
             fonts,
             "preview-label",
             layout.preview_label,
-            Box(72, 1024, 1776, 28),
-            size=19,
+            Box(72, 1030, 1776, 28),
+            size=18,
             color=MUTED,
             align="center",
         )
@@ -432,6 +484,8 @@ def render_card(
         tuple(option.country_id for option in question.options),
         question.correct_answer_index if reveal else None,
         source,
+        brand_box,
+        brand_source,
     )
 
 
@@ -455,10 +509,11 @@ def save_png(card: RenderedCard, output_root: Path, path: str, *, overwrite: boo
     destination = requested.resolve()
     if not destination.is_relative_to(root):
         raise GraphicsError("output path escapes output root through a symlink")
-    if destination == card.source_asset or (
-        destination.exists() and destination.samefile(card.source_asset)
-    ):
-        raise GraphicsError("output must not replace the source flag asset")
+    for source in (card.source_asset, card.brand_source):
+        if source is not None and (
+            destination == source or (destination.exists() and destination.samefile(source))
+        ):
+            raise GraphicsError("output must not replace a source flag asset or brand asset")
     if destination.exists() and not overwrite:
         raise GraphicsError("output already exists; explicitly request overwrite")
     temporary: Path | None = None

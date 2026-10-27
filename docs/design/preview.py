@@ -105,7 +105,13 @@ def prepare_synthetic_inputs(root: Path) -> tuple[Path, Path]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--font-dir", type=Path, help="Explicit DejaVu regular/Bold directory.")
-    parser.add_argument("--output-root", type=Path, default=Path("output/design-preview"))
+    parser.add_argument("--output-root", type=Path, default=Path("output/design-v2"))
+    parser.add_argument(
+        "--brand-asset",
+        type=Path,
+        required=True,
+        help="Explicit supplied transparent mascot/logo PNG.",
+    )
     args = parser.parse_args()
     fonts = load_fonts(args.font_dir)
     countries, recipe = prepare_synthetic_inputs(args.output_root / "inputs")
@@ -116,7 +122,12 @@ def main() -> None:
     )
     for name, reveal in (("question.png", False), ("reveal.png", True)):
         card = render_card(
-            question, layout, content_root=countries.parent, fonts=fonts, reveal=reveal
+            question,
+            layout,
+            content_root=countries.parent,
+            fonts=fonts,
+            reveal=reveal,
+            brand_asset=args.brand_asset,
         )
         print(save_png(card, args.output_root, name, overwrite=True))
         mobile = card.image.resize((480, 270), Image.Resampling.LANCZOS)
@@ -144,10 +155,20 @@ def main() -> None:
         "an ivory band for shared knowledge, "
         "and a coral sun for discovery across its many islands."
     )
-    card = render_card(stress, layout, content_root=countries.parent, fonts=fonts, reveal=True)
+    card = render_card(
+        stress,
+        layout,
+        content_root=countries.parent,
+        fonts=fonts,
+        reveal=True,
+        brand_asset=args.brand_asset,
+    )
     print(save_png(card, args.output_root, "stress.png", overwrite=True))
-    card.image.resize((480, 270), Image.Resampling.LANCZOS).save(
-        args.output_root / "stress-mobile.png"
+    save_png(
+        replace(card, image=card.image.resize((480, 270), Image.Resampling.LANCZOS)),
+        args.output_root,
+        "stress-mobile.png",
+        overwrite=True,
     )
 
 
