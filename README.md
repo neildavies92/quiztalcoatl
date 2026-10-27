@@ -98,3 +98,23 @@ outputs under `output/` or `outputs/`, which are ignored by Git.
 
 GitHub Actions runs locked installation, `make check` and `make smoke` on Ubuntu with
 Python 3.12 for pull requests targeting `main` and pushes to `main`.
+
+## Docker execution
+
+Native uv development remains supported. Docker supplies Python 3.12, FFmpeg/ffprobe,
+Pillow dependencies and an explicit DejaVu Sans font baseline in a non-root CLI image.
+Requires Docker, Make and host Python 3.9+ for the standard-library acceptance driver.
+
+```bash
+make docker-build
+make docker-check
+make docker-smoke
+docker run --rm --network none quiztalcoatl:local doctor
+```
+
+The check target executes static analysis/tests inside an offline test container. The smoke
+target exercises the real runtime image, read-only inputs, host-user output permissions,
+synthetic approved resolution and H.264 encoding; it leaves a short MP4 under ignored
+`output/container-smoke/` for human playback review. Editorial data stays mounted at run
+time, so content edits require no image rebuild. The real draft snapshot still fails approval.
+See [container usage, pins, volume mounts, fonts and UAT](docs/container.md).

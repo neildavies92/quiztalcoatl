@@ -41,3 +41,15 @@ jobs:
         run: uv sync --locked
       - run: make check
       - run: make smoke
+
+  container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - name: Build runtime image
+        run: make docker-build
+      - name: Container static checks and tests
+        run: make docker-check
+      - name: Offline runtime, bind mounts and H.264 smoke
+        run: make docker-smoke
