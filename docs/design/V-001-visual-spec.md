@@ -64,7 +64,10 @@ Production previews use **DejaVu Sans regular and Bold**. Supply either an expli
 The M3c runtime provides them at `/usr/share/fonts/truetype/dejavu` through Debian's
 `fonts-dejavu-core`; the agreed environment variable points there. There is no implicit
 workstation font search or fallback, no startup download and no new Python dependency.
-Font-loading failures identify the required files and the supplied directory.
+The loader reads those exact files into memory before invoking FreeType: Pillow's
+filename-based API can otherwise fall back to a system font on some platforms even
+when an explicit file is missing or corrupt. Font-loading failures identify the required
+files and the supplied directory.
 
 No font binary is committed in this PR. Actual local previews used fonts exported from
 the M3c container image to `/tmp/quiztalcoatl-fonts`. Consult the installed Debian font

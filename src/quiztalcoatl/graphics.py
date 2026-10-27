@@ -1,5 +1,6 @@
 """Static geography-pilot cards; resolved editorial content is never selected here."""
 
+import io
 import math
 import os
 import tempfile
@@ -81,8 +82,8 @@ def load_fonts(font_dir: Path | None = None) -> FontSet:
     root = Path(configured)
     try:
         return FontSet(
-            ImageFont.truetype(str(root / "DejaVuSans.ttf"), size=40),
-            ImageFont.truetype(str(root / "DejaVuSans-Bold.ttf"), size=40),
+            ImageFont.truetype(io.BytesIO((root / "DejaVuSans.ttf").read_bytes()), size=40),
+            ImageFont.truetype(io.BytesIO((root / "DejaVuSans-Bold.ttf").read_bytes()), size=40),
         )
     except OSError as exc:
         raise GraphicsError(

@@ -201,7 +201,10 @@ def test_explicit_font_directory_and_environment(
     assert isinstance(embedded, io.BytesIO)
     for name in ("DejaVuSans.ttf", "DejaVuSans-Bold.ttf"):
         (tmp_path / name).write_bytes(embedded.getvalue())
-    assert load_fonts(tmp_path).regular.getname() == fonts.regular.getname()
+    loaded = load_fonts(tmp_path)
+    assert loaded.regular.getname() == fonts.regular.getname()
+    assert isinstance(loaded.regular.path, io.BytesIO)
+    assert isinstance(loaded.bold.path, io.BytesIO)
     monkeypatch.setenv("QUIZTALCOATL_FONT_DIR", str(tmp_path))
     assert load_fonts().bold.getname() == fonts.regular.getname()
     (tmp_path / "DejaVuSans-Bold.ttf").write_bytes(b"corrupt font")
