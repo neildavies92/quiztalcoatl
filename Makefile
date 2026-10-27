@@ -24,3 +24,21 @@ check:
 
 smoke:
 	uv run --locked pytest -m smoke
+
+DOCKER_IMAGE ?= quiztalcoatl:local
+DOCKER_TEST_IMAGE ?= quiztalcoatl:test
+DOCKER_SMOKE_DIR ?= output/container-smoke
+
+.PHONY: docker-build docker-check docker-smoke
+
+docker-build:
+	docker build --target runtime --tag $(DOCKER_IMAGE) .
+
+docker-check:
+	docker build --target test --tag $(DOCKER_TEST_IMAGE) .
+	docker run --rm --network none $(DOCKER_TEST_IMAGE)
+	docker run --rm --network none $(DOCKER_TEST_IMAGE) uv run --locked mypy --strict scripts/container_acceptance.py
+	docker run --rm --network none $(DOCKER_TEST_IMAGE) make smoke
+
+docker-smoke:
+	python3 scripts/container_acceptance.py --image $(DOCKER_IMAGE) --output $(DOCKER_SMOKE_DIR)
