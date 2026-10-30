@@ -14,6 +14,7 @@ import typer
 from quiztalcoatl.content import ContentError, load_recipe, load_snapshot, validate_inputs
 from quiztalcoatl.models import ResolvedQuizManifest
 from quiztalcoatl.resolver import resolve_files
+from quiztalcoatl.video import render_video
 
 app = typer.Typer(
     name="quiztalcoatl",
@@ -192,4 +193,46 @@ def resolve(
     typer.echo(
         f"Resolved {manifest.video_id}: {len(manifest.questions)} questions, "
         f"{manifest.expected_total_seconds:g} seconds -> {output}"
+    )
+
+
+@app.command()
+def render(
+    countries: Annotated[Path, typer.Option(help="Publication-ready country snapshot JSON.")],
+    recipe: Annotated[Path, typer.Option(help="Approved V-001 recipe JSON.")],
+    manifest: Annotated[Path, typer.Option(help="Exact current resolved manifest JSON.")],
+    output: Annotated[Path, typer.Option(help="Explicit MP4 destination.")],
+    content_root: Annotated[
+        Path | None, typer.Option(help="Repository-relative asset root.")
+    ] = None,
+    font_dir: Annotated[
+        Path | None,
+        typer.Option(help="Explicit DejaVu directory; otherwise use QUIZTALCOATL_FONT_DIR."),
+    ] = None,
+    brand_asset: Annotated[
+        Path | None,
+        typer.Option(help="Transparent channel artwork; defaults to content-root assets/brand."),
+    ] = None,
+    overwrite: Annotated[
+        bool, typer.Option(help="Replace an existing MP4 after all validation.")
+    ] = False,
+) -> None:
+    """Render publication-ready V-001 inputs to a verified 355-second silent MP4."""
+    try:
+        report = render_video(
+            countries,
+            recipe,
+            manifest,
+            output,
+            content_root=content_root,
+            font_dir=font_dir,
+            brand_asset=brand_asset,
+            overwrite=overwrite,
+        )
+    except (OSError, ValueError) as exc:
+        typer.echo(f"Rendering failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    typer.echo(
+        f"Rendered V-001: {report.frames} frames / 355 seconds / "
+        f"{report.output_bytes} bytes in {report.wall_seconds:.1f}s -> {output}"
     )
