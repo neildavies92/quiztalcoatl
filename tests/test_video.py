@@ -3,6 +3,7 @@
 import io
 import json
 import os
+import re
 import subprocess
 from pathlib import Path
 from typing import Any
@@ -189,7 +190,10 @@ def test_ffmpeg_arguments_are_explicit(tmp_path: Path) -> None:
 
 def test_render_cli_help_and_real_draft_gate(tmp_path: Path) -> None:
     assert "render" in CliRunner().invoke(app, ["--help"]).output
-    assert "--manifest" in CliRunner().invoke(app, ["render", "--help"]).output
+    help_result = CliRunner().invoke(app, ["render", "--help"], env={"FORCE_COLOR": "1"})
+    assert help_result.exit_code == 0
+    plain_help = re.sub(r"\x1b\[[0-?]*[ -/]*[@-~]", "", help_result.output)
+    assert "--manifest" in plain_help
     root = Path(__file__).resolve().parents[1]
     output = tmp_path / "output/video.mp4"
     result = CliRunner().invoke(
